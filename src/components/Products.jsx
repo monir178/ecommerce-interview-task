@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import toast from "react-hot-toast";
 // Listing helpers (tabs and category filter)
 import { DEFAULT_TABS, filterProductsByCategory } from "../utils/listing";
@@ -27,7 +25,7 @@ const Products = () => {
       setData(apiData);
       setFilter(filterProductsByCategory(apiData, activeCat));
     }
-  }, [apiData]);
+  }, [apiData, activeCat]);
 
   const Loading = () => {
     return (
